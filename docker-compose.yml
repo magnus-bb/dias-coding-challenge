@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  api:
+    build: ./api
+    container_name: api_c
+    ports:
+      - "8080:8080"
+    volumes:
+    - ./api:/app # for development
+    - ./app/node_modules # to not mount node_modules, since they are installed independently
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo_c
+    # If we were to persist the db
+    # volumes:
+    #  - ./data:/data/db
+    ports:
+      - '27017:27017'
