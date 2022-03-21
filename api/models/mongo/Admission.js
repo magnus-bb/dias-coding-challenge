@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const { Schema, model } = mongoose
-const { DoctorSchema } = require('./Doctor.js')
 const { JournalSchema } = require('./Journal.js')
 
 const AdmissionSchema = new Schema({
@@ -8,7 +7,10 @@ const AdmissionSchema = new Schema({
     type: String,
     required: true
   },
-  doctors: [ DoctorSchema ], // CHANGE TO OBJECT ID OF DOCTORS INSTEAD
+  doctors: [{ 
+    type: Schema.Types.ObjectId,
+    ref: 'Doctor'
+  }],
   journal: {
     type: JournalSchema,
     required: true

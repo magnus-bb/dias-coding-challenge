@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "656eebff-76d8-426c-ba95-51e2f12a895c",
+		"name": "DIAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE Doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Mr. Doctor\",\r\n  \"department\": \"cardiology\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/doctors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"doctors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/patients?doctorId=6238ea3ed892848fca2de27b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patients"
+					],
+					"query": [
+						{
+							"key": "doctorId",
+							"value": "6238ea3ed892848fca2de27b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIT Patients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"department\": \"cardiology\",\r\n    \"journal\": {\r\n        \"cpr\": \"012345-6789\",\r\n        \"name\": \"Mr. Patient\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/patients",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ASSIGN Doctor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctorId\": \"6238ea49d892848fca2de27d\",\r\n    \"patientCpr\": \"012345-6789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/assignDoctor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assignDoctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Doctors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/doctors?patientCpr=012345-6789",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"doctors"
+					],
+					"query": [
+						{
+							"key": "patientCpr",
+							"value": "012345-6789"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Patient with access",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/patient?patientCpr=012345-6789&doctorId=6238ea49d892848fca2de27d",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patient"
+					],
+					"query": [
+						{
+							"key": "patientCpr",
+							"value": "012345-6789"
+						},
+						{
+							"key": "doctorId",
+							"value": "6238ea49d892848fca2de27d"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

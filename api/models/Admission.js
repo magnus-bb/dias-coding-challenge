@@ -1,5 +1,10 @@
 const { AdmissionModel } = require('./mongo/Admission.js')
 
+/*
+Like the Doctor class, this could handle way more logic if the application was larger,
+such as manipulating the assignment of Doctors etc. through the class.
+*/
+
 module.exports = class Admission {
   #department
   #doctors = []
@@ -28,12 +33,6 @@ module.exports = class Admission {
   get journal() {
     return this.#journal
   }
-
-  assignDoctor(doctor) {
-    this.#doctors.push(doctor)
-  }
-  // TODO: remove doctors
-
 
   saveToDb() {
     const admission = new AdmissionModel({ department: this.department, doctors: this.doctors, journal: this.journal })

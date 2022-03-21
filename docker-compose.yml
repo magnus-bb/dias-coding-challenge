@@ -8,13 +8,18 @@ services:
     volumes:
     - ./api:/app # for development
     - ./app/node_modules # to not mount node_modules, since they are installed independently
+
+    # Allows us to access mongodb directly with mongo://
     links:
       - mongo
   mongo:
     image: mongo
     container_name: mongo_c
-    # If we were to persist the db
+
+    # If we were to persist the db across container instances
     # volumes:
     #  - ./data:/data/db
+
+    # To expose db to MongoDB Compass etc
     ports:
       - '27017:27017'

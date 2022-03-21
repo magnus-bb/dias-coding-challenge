@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-const { Schema/*, model*/ } = mongoose
+const { Schema } = mongoose
+
+// We just use this scheme in Admissions
 
 const JournalSchema = new Schema({
   cpr: {
@@ -13,6 +15,4 @@ const JournalSchema = new Schema({
   }
 })
 
-// const JournalModel = model('Journal', JournalSchema)
-
-module.exports = { /* JournalModel,*/ JournalSchema }
+module.exports = { JournalSchema }

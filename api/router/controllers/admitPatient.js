@@ -1,4 +1,3 @@
-const Journal = require('../../models/Journal.js')
 const Admission = require('../../models/Admission.js')
 
 module.exports = async (req, res) => {
@@ -11,6 +10,7 @@ module.exports = async (req, res) => {
 
   } catch (err) {
     res.status(400).json({ message: err.message })
+    return
   }
   
   res.status(201).json(document)

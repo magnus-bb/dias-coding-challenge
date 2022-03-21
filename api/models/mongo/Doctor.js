@@ -15,4 +15,4 @@ const DoctorSchema = new Schema({
 
 const DoctorModel = model('Doctor', DoctorSchema)
 
-module.exports = { DoctorModel, DoctorSchema }
+module.exports = { DoctorModel }

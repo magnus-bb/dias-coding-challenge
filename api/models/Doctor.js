@@ -1,5 +1,13 @@
-// const { nanoid } = require('nanoid')
 const { DoctorModel } = require('./mongo/Doctor.js')
+
+/*
+This whole class is kind of superfluous,
+since there is no real logic with Doctors that is not directly related to 
+the database, in which case Mongoose can do the basics.
+
+But it would probably be useful in a larger application.
+The same goes for a Journal class and Department class, that I actually deleted because they was not at all needed.
+*/
 
 module.exports = class Doctor {
   #id // is set by database
